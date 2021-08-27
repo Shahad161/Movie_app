@@ -18,8 +18,10 @@ class MainViewModel: ViewModel(), MovieInteractionListener {
     var topRatedMovie = repository.topRatedMovie().asLiveData()
     var movieGenre = repository.genre().asLiveData()
 
+    init {
+    }
 
-//    var movieGenreList = repository.genreList().asLiveData()
+
 
     var searchTextMovie = MutableLiveData<String?>()
     var movieSearch = MutableLiveData<State<MovieResponse?>?>()

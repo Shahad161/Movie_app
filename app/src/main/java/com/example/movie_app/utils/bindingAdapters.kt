@@ -1,15 +1,13 @@
 package com.example.movie_app.utils
 
-import android.annotation.SuppressLint
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movie_app.State
-import com.example.movie_app.ui.BaseAdapter
-import okhttp3.internal.notify
-import okhttp3.internal.notifyAll
+import com.example.movie_app.data.domain.HomeItem
+import com.example.movie_app.ui.HomeMovieAdapter
 
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T>showWhenLoading(view: View, state: State<T>?){
@@ -45,12 +43,12 @@ fun setImageFromUrl(view: ImageView, url: String?) {
 }
 
 @BindingAdapter(value = ["app:items"])
-fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) {
+fun <T> setRecyclerItems(view: RecyclerView, items: List<HomeItem<Any>>?) {
 
     if (items != null){
         view.adapter?.notifyDataSetChanged()
-        (view.adapter as BaseAdapter<T>?)?.setItems(items)
+        (view.adapter as HomeMovieAdapter?)?.setItem(items)
     }else{
-        (view.adapter as BaseAdapter<T>?)?.setItems(emptyList())
+        (view.adapter as HomeMovieAdapter?)?.setItem(emptyList())
     }
 }

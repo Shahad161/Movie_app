@@ -10,8 +10,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.movie_app.databinding.FragmentSearchBinding
 import com.example.movie_app.ui.MainViewModel
-import com.example.movie_app.ui.SearchMovieAdapter
-import com.example.movie_app.ui.TopRatedMovieAdapter
+
+
 
 class SearchFragment : Fragment() {
 
@@ -29,8 +29,8 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val searchAdapter = SearchMovieAdapter(mutableListOf(), viewModel)
-        binding.recyclerSearchMovie.adapter = searchAdapter
+//        val searchAdapter = SearchMovieAdapter(mutableListOf(), viewModel)
+//        binding.recyclerSearchMovie.adapter = searchAdapter
 
         viewModel.searchTextMovie.observe(this, {
             Log.i("nono", it.toString())

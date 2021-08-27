@@ -11,17 +11,19 @@ import com.example.movie_app.R
 import com.example.movie_app.data.domain.HomeItem
 import com.example.movie_app.data.domain.HomeItemType
 import com.example.movie_app.databinding.FragmentHomeBinding
-import com.example.movie_app.ui.GenreAdapter
+import com.example.movie_app.ui.HomeMovieAdapter
 import com.example.movie_app.ui.MainViewModel
-import com.example.movie_app.ui.PopularMovieAdapter
-import com.example.movie_app.ui.TopRatedMovieAdapter
 
 class HomeFragment : Fragment() {
 
     lateinit var binding: FragmentHomeBinding
 
     private val viewModel: MainViewModel by viewModels()
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
@@ -31,25 +33,13 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val popularAdapter = PopularMovieAdapter(mutableListOf(), viewModel)
-        binding.recyclerPopularMovie.adapter = popularAdapter
 
-        val topRatedAdapter = TopRatedMovieAdapter(mutableListOf(), viewModel)
-        binding.recyclerTopRateMovie.adapter = topRatedAdapter
-
-        val genreAdapter = GenreAdapter(mutableListOf(), viewModel)
-        binding.recyclerGenreMovie.adapter = genreAdapter
-
+        val genreAdapter = HomeMovieAdapter(mutableListOf(), viewModel)
+        binding.recyclerPopularMovie.adapter = genreAdapter
 
         binding.searchIcon.setOnClickListener { v ->
             Navigation.findNavController(v).navigate(R.id.action_homeFragment_to_searchFragment)
         }
-
-
-
-//        binding.button.setOnClickListener { v ->
-//            Navigation.findNavController(v).navigate(R.id.action_AFragment_to_CFragment)
-//        }
     }
 
 }

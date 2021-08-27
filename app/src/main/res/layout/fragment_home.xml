@@ -49,67 +49,19 @@
                 app:tint="@color/white" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_genre_movie"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal"
-                app:items="@{viewModel.movieGenre.toData().genres}"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mov_ve"
-                app:showWhenSuccess="@{viewModel.movieGenre}"
-                tools:listitem="@layout/item_genre" />
-
-            <TextView
-                android:id="@+id/popular_movie_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Popular Movie"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recycler_genre_movie" />
-
-            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_popular_movie"
                 android:layout_width="match_parent"
-                android:layout_height="265dp"
+                android:layout_height="0dp"
                 android:orientation="horizontal"
                 app:items="@{viewModel.popularMovie.toData().results}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/popular_movie_text"
+                app:layout_constraintTop_toBottomOf="@+id/mov_ve"
                 app:showWhenSuccess="@{viewModel.popularMovie}"
                 tools:listitem="@layout/item_movie" />
 
-
-            <TextView
-                android:id="@+id/topRateTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:text="Top Rate Movies"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recycler_popular_movie" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_top_rate_movie"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:orientation="horizontal"
-                app:items="@{viewModel.topRatedMovie.toData().results}"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/topRateTextView"
-                app:showWhenSuccess="@{viewModel.topRatedMovie}"
-                tools:listitem="@layout/item_movie_list" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
