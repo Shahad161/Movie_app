@@ -25,20 +25,12 @@ class SearchFragment : Fragment() {
         return binding.root
     }
 
-    @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val searchAdapter = SearchMovieAdapter(mutableListOf(), viewModel)
         binding.recyclerSearchMovie.adapter = searchAdapter
 
-        viewModel.searchTextMovie.observe(this, {
-            Log.i("nono", it.toString())
-        })
-
-//        binding.button.setOnClickListener { v ->
-//            Navigation.findNavController(v).navigate(R.id.action_AFragment_to_CFragment)
-//        }
     }
 
 }

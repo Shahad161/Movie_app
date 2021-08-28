@@ -1,8 +1,14 @@
 package com.example.movie_app.data.model
 
-
+import android.annotation.SuppressLint
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
+
+
+
+@SuppressLint("ParcelCreator")
 data class MovieResponse(
     @SerializedName("page")
     val page: Int? = null,
@@ -12,4 +18,12 @@ data class MovieResponse(
     val totalPages: Int? = null,
     @SerializedName("total_results")
     val totalResults: Int? = null
-)
+): Parcelable {
+    override fun describeContents(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun writeToParcel(dest: Parcel?, flags: Int) {
+        TODO("Not yet implemented")
+    }
+}

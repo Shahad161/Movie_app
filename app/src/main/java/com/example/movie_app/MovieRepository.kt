@@ -1,5 +1,6 @@
 package com.example.movie_app
 
+import android.util.Log
 import com.example.movie_app.data.Constants
 import com.example.movie_app.data.model.MovieResponse
 import com.example.movie_app.networking.Api

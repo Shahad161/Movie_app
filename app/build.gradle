@@ -2,7 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-android-extensions'
+    id "androidx.navigation.safeargs.kotlin"
 
 }
 
@@ -29,12 +30,18 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
     buildFeatures{
         dataBinding = true
     }
+
+    androidExtensions {
+        experimental = true
+    }
+
 }
 
 dependencies {

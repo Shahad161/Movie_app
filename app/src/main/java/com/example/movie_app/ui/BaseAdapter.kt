@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movie_app.BR
-
+import com.example.movie_app.data.model.Movie
 
 
 interface BaseInteractionListener
@@ -27,10 +27,11 @@ abstract class BaseAdapter<T>(private var items: List<T>, private var listener: 
                 holder.binding.setVariable(BR.listener, listener)
             }
         }
+
     }
 
-    fun setItems(newItems: List<T>){
-        items = newItems
+    fun setItems(newItems: List<T>?){
+        items = newItems!!
     }
 
     fun getItems() = items

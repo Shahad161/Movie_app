@@ -6,13 +6,13 @@
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Home"/>
     <item
-        android:id="@+id/BFragment"
+        android:id="@+id/genreListFragment"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="page_B"/>
+        android:title="Genre"/>
     <item
-        android:id="@+id/CFragment"
+        android:id="@+id/eew"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="page_C"/>
+        android:title="Movies"/>
     <item
         android:id="@+id/DFragment"
         android:icon="@drawable/ic_baseline_home_24"

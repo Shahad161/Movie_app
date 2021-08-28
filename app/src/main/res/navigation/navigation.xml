@@ -15,19 +15,36 @@
         <action
             android:id="@+id/action_homeFragment_to_genreListFragment"
             app:destination="@id/genreListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_genreMoviesFragment2"
+            app:destination="@id/genreMoviesFragment2"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.movie_app.fagment.SearchFragment"
         android:label="SearchFragment"
-        tools:layout="@layout/fragment_search"/>
+        tools:layout="@layout/fragment_search">
+        <argument
+            android:name="MoviesList"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/genreListFragment"
         android:name="com.example.movie_app.fagment.GenreListFragment"
         android:label="fragment_genre_list"
         tools:layout="@layout/fragment_genre_list" >
+        <action
+            android:id="@+id/action_genreListFragment_to_genreMoviesFragment2"
+            app:destination="@id/genreMoviesFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/genreMoviesFragment2"
+        android:name="com.example.movie_app.fagment.GenreMoviesFragment"
+        android:label="GenreMoviesFragment"
+        tools:layout="@layout/fragment_genre_movies">
         <argument
-            android:name="genre"
-            app:argType="string" />
+            android:name="movieList"
+            app:argType="com.example.movie_app.data.model.MovieResponse" />
     </fragment>
 </navigation>

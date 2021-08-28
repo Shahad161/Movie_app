@@ -31,14 +31,15 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/genre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
+                android:onClick="@{() -> listener.onClickGenre(item)}"
                 android:text="@{item.name}"
                 android:textColor="@color/white"
                 tools:text="cinama" />
         </androidx.cardview.widget.CardView>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
