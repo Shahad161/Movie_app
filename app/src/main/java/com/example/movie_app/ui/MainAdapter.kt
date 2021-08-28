@@ -81,8 +81,6 @@ class HomeMovieAdapter(private var items: List<HomeItem<Any>>, private val liste
 
     }
 
-
-
     companion object {
         private const val VIEW_TYPE_MOVIE = 2
         private const val VIEW_TYPE_GENRE = 1

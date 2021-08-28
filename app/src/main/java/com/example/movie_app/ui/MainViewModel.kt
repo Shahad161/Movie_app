@@ -1,11 +1,8 @@
 package com.example.movie_app.ui
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.example.movie_app.MovieRepository
 import com.example.movie_app.State
-import com.example.movie_app.data.domain.HomeItem
-import com.example.movie_app.data.domain.HomeItemType
 import com.example.movie_app.data.model.Movie
 import com.example.movie_app.data.model.MovieResponse
 import kotlinx.coroutines.flow.collect
@@ -17,10 +14,6 @@ class MainViewModel: ViewModel(), MovieInteractionListener {
     var popularMovie = repository.popularMovie().asLiveData()
     var topRatedMovie = repository.topRatedMovie().asLiveData()
     var movieGenre = repository.genre().asLiveData()
-
-    init {
-    }
-
 
 
     var searchTextMovie = MutableLiveData<String?>()
