@@ -8,9 +8,11 @@
         <variable
             name="viewModel"
             type="com.example.movie_app.ui.MainViewModel" />
+        <variable
+            name="item"
+            type="com.example.movie_app.data.movieDetails.MovieDetails" />
 
     </data>
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,41 +26,98 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/background"
-            android:padding="16dp">
+            android:background="@color/white" >
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:background="@drawable/home_shape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/mov_ve"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Movve"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/actor"
+                android:text="Home"
                 android:textColor="@color/white"
+                android:textSize="32sp"
                 android:textStyle="bold"
-                android:textSize="42sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/search_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_search_24"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/search"
                 app:layout_constraintBottom_toBottomOf="@+id/mov_ve"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/mov_ve"
                 app:tint="@color/white" />
 
+            <TextView
+                android:id="@+id/trending_movie_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/actor"
+                android:text="Trending Movie"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mov_ve" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_trending_movie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal"
+                app:items="@{viewModel.trendingMovie.toData().results}"
+                app:showWhenSuccess="@{viewModel.trendingMovie}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/trending_movie_text"
+                tools:listitem="@layout/trending_item"
+                />
+
+
+            <TextView
+                android:id="@+id/genre_movie_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:text="Genre"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:fontFamily="@font/actor"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_trending_movie" />
+
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_genre_movie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
                 android:orientation="horizontal"
                 app:items="@{viewModel.movieGenre.toData().genres}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mov_ve"
+                app:layout_constraintTop_toBottomOf="@+id/genre_movie_text"
                 app:showWhenSuccess="@{viewModel.movieGenre}"
                 tools:listitem="@layout/item_genre" />
 
@@ -66,50 +125,31 @@
                 android:id="@+id/popular_movie_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:text="Popular Movie"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:fontFamily="@font/actor"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_genre_movie" />
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_popular_movie"
                 android:layout_width="match_parent"
                 android:layout_height="265dp"
+                android:layout_marginStart="16dp"
                 android:orientation="horizontal"
                 app:items="@{viewModel.popularMovie.toData().results}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/popular_movie_text"
                 app:showWhenSuccess="@{viewModel.popularMovie}"
-                tools:listitem="@layout/item_movie" />
-
-
-            <TextView
-                android:id="@+id/topRateTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:text="Top Rate Movies"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recycler_popular_movie" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_top_rate_movie"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:orientation="horizontal"
-                app:items="@{viewModel.topRatedMovie.toData().results}"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/topRateTextView"
-                app:showWhenSuccess="@{viewModel.topRatedMovie}"
-                tools:listitem="@layout/item_movie_list" />
+                tools:listitem="@layout/item_movie"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>

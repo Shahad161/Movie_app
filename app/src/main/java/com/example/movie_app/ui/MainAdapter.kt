@@ -1,15 +1,15 @@
 package com.example.movie_app.ui
 
+import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import com.example.movie_app.R
 import com.example.movie_app.data.model.Movie
+import com.example.movie_app.data.model.cast.CastX
 import com.example.movie_app.data.model.genre.GenreX
+import com.example.movie_app.data.movieDetails.Genre
 
 class PopularMovieAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {
     override val layoutId: Int = R.layout.item_movie
-}
-
-class TopRatedMovieAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {
-    override val layoutId: Int = R.layout.item_movie_list
 }
 
 class SearchMovieAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {
@@ -22,10 +22,35 @@ class GenreAdapter(items: List<GenreX>, listener:MovieInteractionListener): Base
 
 class GenreListAdapter(items: List<GenreX>, listener:MovieInteractionListener): BaseAdapter<GenreX>(items, listener) {
     override val layoutId: Int = R.layout.item_genre_list
+    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+        super.onBindViewHolder(holder, position)
+        holder.itemView.animation = AnimationUtils.loadAnimation(holder.itemView.context, R.anim.cards_anim)
+    }
 }
 
 class GenreMovieListAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {
     override val layoutId: Int = R.layout.gerne_movies
+    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+        super.onBindViewHolder(holder, position)
+        holder.itemView.animation = AnimationUtils.loadAnimation(holder.itemView.context, R.anim.cards_anim)
+    }
+}
+
+class GenreForEachMovieAdapter(items: List<Genre>, listener:MovieInteractionListener): BaseAdapter<Genre>(items, listener) {
+    override val layoutId: Int = R.layout.item_genre_for_each_movie
+}
+
+class AllMovieAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {
+    override val layoutId: Int = R.layout.all_movie
+}
+
+class TrendingAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {
+    override val layoutId: Int = R.layout.trending_item
+    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+        super.onBindViewHolder(holder, position)
+        holder.itemView.animation = AnimationUtils.loadAnimation(holder.itemView.context, R.anim.cards_anim)
+    }
+
 }
 
 interface MovieInteractionListener: BaseInteractionListener {

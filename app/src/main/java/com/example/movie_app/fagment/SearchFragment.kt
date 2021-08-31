@@ -8,10 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
+import com.example.movie_app.data.model.cast.Cast
+import com.example.movie_app.data.movieDetails.MovieDetails
 import com.example.movie_app.databinding.FragmentSearchBinding
 import com.example.movie_app.ui.MainViewModel
 import com.example.movie_app.ui.SearchMovieAdapter
-import com.example.movie_app.ui.TopRatedMovieAdapter
 
 class SearchFragment : Fragment() {
 
@@ -30,6 +32,25 @@ class SearchFragment : Fragment() {
 
         val searchAdapter = SearchMovieAdapter(mutableListOf(), viewModel)
         binding.recyclerSearchMovie.adapter = searchAdapter
+
+
+        viewModel.movieDetails.observe(viewLifecycleOwner, {
+            if (it?.toData() != null ) {
+                val action = SearchFragmentDirections.actionSearchFragmentToMovieDetailsFragment(it.toData()!!)
+                Navigation.findNavController(view).navigate(action)
+            }
+        })
+
+//        viewModel.movieCast.observe(viewLifecycleOwner, {
+//            if (it?.toData() != null ) {
+//                cast.add(it.toData()!!)
+//            }
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        viewModel.movieDetails.value = null
 
     }
 

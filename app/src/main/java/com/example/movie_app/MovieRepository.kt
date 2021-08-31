@@ -1,6 +1,5 @@
 package com.example.movie_app
 
-import android.util.Log
 import com.example.movie_app.data.Constants
 import com.example.movie_app.data.model.MovieResponse
 import com.example.movie_app.networking.Api
@@ -12,6 +11,10 @@ import java.lang.Exception
 class MovieRepository {
     fun popularMovie() = wrapWithFlow { Api.apiService.getPopularMovie(Constants.API_KEY) }
     fun topRatedMovie() = wrapWithFlow { Api.apiService.getTopRatedMovie(Constants.API_KEY) }
+    fun latestMovie() = wrapWithFlow { Api.apiService.getLatestMovie(Constants.API_KEY) }
+    fun upcomingMovie() = wrapWithFlow { Api.apiService.getUpcomingMovie(Constants.API_KEY) }
+    fun nowPlayingMovie() = wrapWithFlow { Api.apiService.getNowPlayingMovie(Constants.API_KEY) }
+
     fun movieName(movieName: String): Flow<State<MovieResponse?>>? {
         if (movieName == "") {
             return null
@@ -20,6 +23,10 @@ class MovieRepository {
     }
     fun genre() = wrapWithFlow { Api.apiService.getGenre(Constants.API_KEY) }
     fun genreList(genreId: String) = wrapWithFlow { Api.apiService.getGenreList(Constants.API_KEY, genreId ) }
+    fun movieDetails(movieId: Int) = wrapWithFlow { Api.apiService.getMovieDetails(movieId, Constants.API_KEY) }
+    fun trendingMovie() = wrapWithFlow { Api.apiService.getTrendingMovie("movie","week", Constants.API_KEY) }
+    fun castMovie(castId: Int) = wrapWithFlow { Api.apiService.getCastMovie(castId, Constants.API_KEY) }
+
 
     fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {
 
