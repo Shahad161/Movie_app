@@ -15,8 +15,8 @@
     </data>
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         app:cardCornerRadius="16dp"
         android:layout_margin="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,34 +46,23 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/trending_transparent" />
+                app:srcCompat="@drawable/tv_image" />
 
             <TextView
                 android:id="@+id/movie_name"
-                android:layout_width="280dp"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/actor"
                 android:lines="2"
                 android:text="@{item.originalTitle}"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/over_view_name"
-                android:layout_width="280dp"
-                android:layout_height="60dp"
-                android:fontFamily="@font/actor"
-                android:paddingTop="4dp"
-                android:lines="2"
-                android:text="@{item.overview}"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/movie_name"
-                app:layout_constraintTop_toBottomOf="@+id/movie_name" />
+                app:layout_constraintTop_toBottomOf="@+id/view" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/view"
@@ -83,7 +72,7 @@
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/star_lable"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="@+id/movieImage">
 
                 <TextView
                     android:id="@+id/textView4"
@@ -92,7 +81,7 @@
                     android:layout_marginStart="8dp"
                     android:text="@{item.voteAverage.toString()}"
                     android:textColor="@color/yellowLight"
-                    android:textSize="16dp"
+                    android:textSize="14dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView6"
                     app:layout_constraintEnd_toStartOf="@+id/imageView6"
@@ -102,13 +91,14 @@
 
                 <ImageView
                     android:id="@+id/imageView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
                     android:layout_marginEnd="4dp"
                     android:src="@drawable/ic_baseline_star_24"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:tint="@color/yellowLight" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -116,54 +106,16 @@
                 android:id="@+id/genre_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
                 android:text="@{item.releaseDate}"
+
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/over_view_name"
-                app:layout_constraintTop_toBottomOf="@+id/over_view_name" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:src="@drawable/ic_baseline_visibility_24"
-                app:layout_constraintStart_toEndOf="@+id/genre_details"
-                app:layout_constraintTop_toTopOf="@+id/genre_details"
-                app:tint="@color/white" />
-
-            <TextView
-                android:id="@+id/popularity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="@{item.popularity.toString()}"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-                app:layout_constraintStart_toEndOf="@+id/imageView3"
-                app:layout_constraintTop_toTopOf="@+id/imageView3" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:src="@drawable/ic_baseline_thumb_up_24"
-                app:layout_constraintStart_toEndOf="@+id/popularity"
-                app:layout_constraintTop_toTopOf="@+id/imageView3"
-                app:tint="@color/white" />
-
-            <TextView
-                android:id="@+id/time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="@{item.voteCount.toString()}"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
-                app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

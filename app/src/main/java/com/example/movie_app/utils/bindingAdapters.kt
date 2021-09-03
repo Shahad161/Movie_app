@@ -5,7 +5,6 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.movie_app.State
 import com.example.movie_app.ui.BaseAdapter
 
 @BindingAdapter(value = ["app:showWhenLoading"])

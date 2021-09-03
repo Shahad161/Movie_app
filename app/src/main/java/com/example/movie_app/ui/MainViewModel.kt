@@ -1,10 +1,13 @@
 package com.example.movie_app.ui
 
+import android.util.Log
 import androidx.lifecycle.*
-import com.example.movie_app.MovieRepository
-import com.example.movie_app.State
+import com.example.movie_app.data.MovieRepository
+import com.example.movie_app.utils.State
 import com.example.movie_app.data.model.Movie
 import com.example.movie_app.data.model.MovieResponse
+import com.example.movie_app.data.model.actor.Famous
+import com.example.movie_app.data.model.actor.details.ActorDetails
 import com.example.movie_app.data.model.genre.GenreX
 import com.example.movie_app.data.movieDetails.MovieDetails
 import kotlinx.coroutines.flow.collect
@@ -15,16 +18,14 @@ class MainViewModel: ViewModel(), MovieInteractionListener {
     private val repository = MovieRepository()
 
     var popularMovie = repository.popularMovie().asLiveData()
-    var topRatedMovie = repository.topRatedMovie().asLiveData()
-    var latestMovie = repository.latestMovie().asLiveData()
-    var upcomingMovie = repository.upcomingMovie().asLiveData()
-    var nowPlayingMovie = repository.nowPlayingMovie().asLiveData()
-
-
     var movieGenre = repository.genre().asLiveData()
     var searchTextMovie = MutableLiveData<String?>()
     var movieSearch = MutableLiveData<State<MovieResponse?>?>()
     var trendingMovie = repository.trendingMovie().asLiveData()
+    var topRatedTV = repository.topRatedTV().asLiveData()
+    var popularPerson = repository.popularPerson().asLiveData()
+    var actorDetails = MutableLiveData<Famous?>()
+
 
     fun moviesOfSearch(){
         movieSearch.value = null
@@ -35,10 +36,11 @@ class MainViewModel: ViewModel(), MovieInteractionListener {
         }
     }
 
-
     var movieGenreList = MutableLiveData<State<MovieResponse?>?>()
+    var genreOfMovie = ""
     private fun getGenre(genre: GenreX){
         viewModelScope.launch {
+            genreOfMovie = genre.name.toString()
             repository.genreList(genre.id.toString()).collect {
                 movieGenreList.postValue(it)
             }
@@ -50,16 +52,38 @@ class MainViewModel: ViewModel(), MovieInteractionListener {
         viewModelScope.launch {
             repository.movieDetails(movie.id!!).collect {
                 movieDetails.postValue(it)
+            }
+        }
+    }
 
+    var similarMovie = MutableLiveData<State<MovieResponse?>?>()
+    private fun getSimilarMovie(movie: Movie){
+        viewModelScope.launch {
+            repository.similarMovie(movie.id!!).collect {
+                similarMovie.postValue(it)
+            }
+        }
+    }
+
+    var actorBio = ""
+    private fun getActorDetails(famous: Famous){
+        actorDetails.postValue(famous)
+        viewModelScope.launch {
+            repository.actorDetailsBio(famous.id!!).collect {
+                actorBio = it.toData()?.biography.toString()
             }
         }
     }
 
 
-    override fun onClickMovie(movie: Movie) {
-        getMovieDetails(movie)
+    override fun onClickFamous(famous: Famous) {
+        getActorDetails(famous)
     }
 
+    override fun onClickMovie(movie: Movie) {
+         getSimilarMovie(movie)
+         getMovieDetails(movie)
+    }
 
     override fun onClickGenre(genre: GenreX) {
         getGenre(genre)

@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.example.movie_app.databinding.FragmentMovieDetailsBinding
 import com.example.movie_app.ui.GenreForEachMovieAdapter
 import com.example.movie_app.ui.MainViewModel
+import com.example.movie_app.ui.SimilarMoviesAdapter
 
 class MovieDetailsFragment : Fragment() {
 
@@ -50,8 +51,20 @@ class MovieDetailsFragment : Fragment() {
         val genreForEachMovie = GenreForEachMovieAdapter(mutableListOf(), viewModel)
         binding.recyclerGenreMovie.adapter = genreForEachMovie
 
+        val similarMovie = SimilarMoviesAdapter(mutableListOf(), viewModel)
+        binding.recyclerSimilarMovie.adapter = similarMovie
+
+        binding.back.setOnClickListener {
+            Navigation.findNavController(view).popBackStack()
+        }
+
         args.movieDetails.genres.let {
             genreForEachMovie.setItems(it)
         }
+
+        args.similarMovie.results.let {
+            similarMovie.setItems(it)
+        }
+
     }
 }

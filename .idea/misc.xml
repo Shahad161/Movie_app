@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/projects/Movie_app/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14635416666666667" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/drawable-v24/search_ss.xml" value="0.2703125" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/card_details.xml" value="0.17222222222222222" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/cast_shape.xml" value="0.24722222222222223" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/circle.xml" value="0.26615384615384613" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/genre_card.xml" value="0.22407407407407406" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/genre_for_each_movie.xml" value="0.1" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/genre_list.xml" value="0.1" />
@@ -19,28 +21,40 @@
         <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14635416666666667" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/movie_image_shape.xml" value="0.2564814814814815" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/navigation_bar.xml" value="0.26615384615384613" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/options_lines.xml" value="0.1814814814814815" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/search_background.xml" value="0.12962962962962962" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/search_shape.xml" value="0.2212962962962963" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/star_lable.xml" value="0.20462962962962963" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/tranding_bar.xml" value="0.26615384615384613" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/transparent_background.xml" value="0.2703125" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/trending_transparent.xml" value="0.20462962962962963" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/tv_image.xml" value="0.25277777777777777" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/drawable/video_player.xml" value="0.1814814814814815" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout-v26/fragment_search.xml" value="0.12360688956433637" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout-v26/slider_item.xml" value="0.22192028985507245" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/layout/actor_item.xml" value="0.24230072463768115" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/layout/all_TV.xml" value="0.23641304347826086" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/all_movie.xml" value="0.22644927536231885" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/layout/all_tv.xml" value="0.12360688956433637" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/cast_item.xml" value="0.1838768115942029" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/fragment_a.xml" value="0.19021739130434784" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/layout/fragment_actor.xml" value="0.24230072463768115" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/layout/fragment_actors_movies.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/fragment_b.xml" value="0.19021739130434784" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/fragment_c.xml" value="0.19021739130434784" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/fragment_d.xml" value="0.19021739130434784" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/fragment_genre_list.xml" value="0.264" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/fragment_genre_movies.xml" value="0.2296195652173913" />
-        <entry key="..\:/projects/Movie_app/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/layout/fragment_home.xml" value="0.13503649635036497" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/fragment_movie_details.xml" value="0.264" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/fragment_movie_list.xml" value="0.245018115942029" />
-        <entry key="..\:/projects/Movie_app/app/src/main/res/layout/fragment_search.xml" value="0.2" />
-        <entry key="..\:/projects/Movie_app/app/src/main/res/layout/gerne_movies.xml" value="0.24320652173913043" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/layout/fragment_search.xml" value="0.264" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/layout/fragment_t_v.xml" value="0.264" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/layout/gerne_movies.xml" value="0.264" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/gernemovies.xml" value="0.23233695652173914" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/layout/item_actor.xml" value="0.12360688956433637" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/layout/item_actors_movies.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/item_genre.xml" value="0.264" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/item_genre_for_each_movie.xml" value="0.23369565217391305" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/item_genre_list.xml" value="0.2296195652173913" />
@@ -48,6 +62,7 @@
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/item_movie.xml" value="0.2" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/item_movie_list.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/item_search.xml" value="0.264" />
+        <entry key="..\:/projects/Movie_app/app/src/main/res/layout/item_similar.xml" value="0.12360688956433637" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/kkk.xml" value="0.22644927536231885" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/star_lable.xml" value="0.24592391304347827" />
         <entry key="..\:/projects/Movie_app/app/src/main/res/layout/trending_item.xml" value="0.264" />
@@ -63,5 +78,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.2" />
+      </ProjectState>
+    </option>
   </component>
 </project>

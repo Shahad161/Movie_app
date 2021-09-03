@@ -31,13 +31,17 @@ class GenreListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.back.setOnClickListener {
+            Navigation.findNavController(view).popBackStack()
+        }
+
         val genreAdapter = GenreListAdapter(mutableListOf(), viewModel)
         binding.recyclerGenreList.adapter = genreAdapter
 
         viewModel.movieGenreList.observe(viewLifecycleOwner, {
             if (it?.toData() != null ) {
                 val action =
-                    GenreListFragmentDirections.actionGenreListFragmentToGenreMoviesFragment2(it.toData()!!)
+                    GenreListFragmentDirections.actionGenreListFragmentToGenreMoviesFragment2(it.toData()!!, viewModel.genreOfMovie)
                 Navigation.findNavController(view).navigate(action)
             }
         })

@@ -10,14 +10,21 @@
     <color name="background">#191E26</color>
     <color name="gray">#636570</color>
     <color name="main_blue">#3F51B5</color>
-    <color name="purple">#673AB7</color>
-    <color name="yellow">#FFC05C</color>
+    <color name="purple">#C9C9FF</color>
+    <color name="yellow">#FFC000</color>
     <color name="yellowLight">#FFEB3B</color>
     <color name="blue_dark2">#192338</color>
     <color name="light_blue">#318DCA</color>
-    <color name="off_white">#E4EBF2</color>
+    <color name="off_white">#F0EDFF</color>
     <color name="gray2">#465771</color>
     <color name="dark_blue">#222D41</color>
+    <color name="orange">#ff7e60</color>
+    <color name="orange_light">#4FFF7E60</color>
+    <color name="red">#E1333C</color>
+    <color name="blue_sky">#62B7E8</color>
+
+
+
 
 
 

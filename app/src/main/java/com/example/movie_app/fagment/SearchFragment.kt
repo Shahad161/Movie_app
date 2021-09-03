@@ -1,16 +1,13 @@
 package com.example.movie_app.fagment
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
-import com.example.movie_app.data.model.cast.Cast
-import com.example.movie_app.data.movieDetails.MovieDetails
+import com.example.movie_app.R
 import com.example.movie_app.databinding.FragmentSearchBinding
 import com.example.movie_app.ui.MainViewModel
 import com.example.movie_app.ui.SearchMovieAdapter
@@ -34,17 +31,16 @@ class SearchFragment : Fragment() {
         binding.recyclerSearchMovie.adapter = searchAdapter
 
 
+        binding.back.setOnClickListener {
+            Navigation.findNavController(view).popBackStack()
+        }
+
         viewModel.movieDetails.observe(viewLifecycleOwner, {
             if (it?.toData() != null ) {
-                val action = SearchFragmentDirections.actionSearchFragmentToMovieDetailsFragment(it.toData()!!)
+                val action = SearchFragmentDirections.actionSearchFragmentToMovieDetailsFragment(it.toData()!!, viewModel.similarMovie.value?.toData()!!)
                 Navigation.findNavController(view).navigate(action)
             }
         })
-
-//        viewModel.movieCast.observe(viewLifecycleOwner, {
-//            if (it?.toData() != null ) {
-//                cast.add(it.toData()!!)
-//            }
 
     }
 

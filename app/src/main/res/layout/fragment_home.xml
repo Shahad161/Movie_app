@@ -26,98 +26,134 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white" >
+            >
 
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimationVie"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:showWhenLoading="@{viewModel.popularMovie}"
+                app:lottie_rawRes="@raw/loading"
+                />
 
             <View
+                android:id="@+id/view2"
                 android:layout_width="match_parent"
-                android:layout_height="240dp"
+                android:layout_height="210dp"
+                app:showWhenSuccess="@{viewModel.popularMovie}"
                 android:background="@drawable/home_shape"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/userPhoto"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/ImageShape"
+                android:src="@drawable/bohemian_man_with_his_arms_crossed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
             <TextView
-                android:id="@+id/mov_ve"
+                android:id="@+id/WELCOME"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:fontFamily="@font/actor"
-                android:text="Home"
-                android:textColor="@color/white"
-                android:textSize="32sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_light"
+                android:text="Hi,"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/userPhoto"
+                app:layout_constraintTop_toTopOf="@+id/userPhoto" />
 
-            <ImageView
-                android:id="@+id/search_icon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+
+            <TextView
+                android:id="@+id/mov"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text= "Bareq!"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/userPhoto"
+                app:layout_constraintStart_toEndOf="@+id/userPhoto"
+                app:layout_constraintTop_toBottomOf="@+id/WELCOME" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:src="@drawable/search"
-                app:layout_constraintBottom_toBottomOf="@+id/mov_ve"
+                android:background="@drawable/search_shape"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/userPhoto"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/mov_ve"
-                app:tint="@color/white" />
+                app:layout_constraintTop_toTopOf="@+id/userPhoto">
 
-            <TextView
-                android:id="@+id/trending_movie_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/actor"
-                android:text="Trending Movie"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mov_ve" />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/search_button"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/search"
+                    android:tint="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_trending_movie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:focusableInTouchMode="true"
+                android:layout_marginTop="32dp"
                 android:orientation="horizontal"
                 app:items="@{viewModel.trendingMovie.toData().results}"
-                app:showWhenSuccess="@{viewModel.trendingMovie}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/trending_movie_text"
-                tools:listitem="@layout/trending_item"
-                />
-
+                app:layout_constraintTop_toBottomOf="@+id/userPhoto"
+                app:showWhenSuccess="@{viewModel.trendingMovie}"
+                tools:listitem="@layout/trending_item" />
 
             <TextView
-                android:id="@+id/genre_movie_text"
+                android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins_semibold"
                 android:text="Genre"
-                android:textStyle="bold"
                 android:textColor="@color/black"
-                android:fontFamily="@font/actor"
-                android:textSize="20sp"
+                android:textSize="20dp"
+                app:showWhenSuccess="@{viewModel.movieGenre}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_trending_movie" />
-
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_genre_movie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:orientation="horizontal"
                 app:items="@{viewModel.movieGenre.toData().genres}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/genre_movie_text"
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
                 app:showWhenSuccess="@{viewModel.movieGenre}"
                 tools:listitem="@layout/item_genre" />
 
@@ -126,11 +162,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:fontFamily="@font/poppins_semibold"
                 android:text="Popular Movie"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/actor"
+                app:showWhenSuccess="@{viewModel.popularMovie}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_genre_movie" />
 
@@ -138,8 +175,9 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_popular_movie"
                 android:layout_width="match_parent"
-                android:layout_height="265dp"
-                android:layout_marginStart="16dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:orientation="horizontal"
                 app:items="@{viewModel.popularMovie.toData().results}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -148,7 +186,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/popular_movie_text"
                 app:showWhenSuccess="@{viewModel.popularMovie}"
-                tools:listitem="@layout/item_movie"
+                tools:listitem="@layout/item_similar"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

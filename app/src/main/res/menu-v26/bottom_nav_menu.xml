@@ -11,19 +11,27 @@
         android:title="Home"/>
 
     <item
-        android:id="@+id/movieListFragment"
-        android:icon="@drawable/video_player"
-        app:cnb_iconColor= "@color/purple_700"
-        android:iconTint="@color/black"
-        android:title="Movies"/>
-
-    <item
         android:id="@+id/searchFragment"
         android:icon="@drawable/search"
         app:cnb_iconColor= "@color/purple_700"
         android:iconTint="@color/black"
         android:title="Search"
         />
+
+    <item
+        android:id="@+id/TVFragment"
+        android:icon="@drawable/television"
+        app:cnb_iconColor= "@color/purple_700"
+        android:iconTint="@color/black"
+        android:title="TV"/>
+
+    <item
+        android:id="@+id/actorFragment"
+        android:icon="@drawable/famous"
+        app:cnb_iconColor= "@color/purple_700"
+        android:iconTint="@color/black"
+        android:title="Search" />
+
     <item
         android:id="@+id/genreListFragment"
         app:cnb_iconColor= "@color/purple_700"

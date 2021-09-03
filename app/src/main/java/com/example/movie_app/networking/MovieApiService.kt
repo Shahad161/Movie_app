@@ -1,9 +1,11 @@
 package com.example.movie_app.networking
 
 import com.example.movie_app.data.model.MovieResponse
-import com.example.movie_app.data.model.cast.Cast
+import com.example.movie_app.data.model.actor.Actor
+import com.example.movie_app.data.model.actor.details.ActorDetails
 import com.example.movie_app.data.model.genre.Genre
 import com.example.movie_app.data.movieDetails.MovieDetails
+import com.example.movie_app.data.tv.Tv
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -16,37 +18,18 @@ interface MovieApiService {
         @Query("api_key") apiKey: String?,
         ): Response<MovieResponse>
 
-    @GET("movie/upcoming")
-    suspend fun getUpcomingMovie(
-        @Query("api_key") apiKey: String?,
-    ): Response<MovieResponse>
-
-    @GET("movie/now_playing")
-    suspend fun getNowPlayingMovie(
-        @Query("api_key") apiKey: String?,
-    ): Response<MovieResponse>
-
-    @GET("movie/latest")
-    suspend fun getLatestMovie(
-        @Query("api_key") apiKey: String?,
-    ): Response<MovieResponse>
-
-    @GET("movie/now_playing")
-    suspend fun getTopRatedMovie(
-        @Query("api_key") apiKey: String?,
-    ): Response<MovieResponse>
-
-
     @GET("search/movie")
     suspend fun getMovie(
         @Query("api_key") apiKey: String?,
         @Query("query") movieName: String?,
         ): Response<MovieResponse>
 
-    @GET("genre/movie/list")
-    suspend fun getGenre(
+    @GET("movie/{movie_id}/similar")
+    suspend fun getSimilarMovie(
+        @Path("movie_id") personId: Int?,
         @Query("api_key") apiKey: String?,
-    ): Response<Genre>
+    ): Response<MovieResponse>
+
 
     @GET("discover/movie")
     suspend fun getGenreList(
@@ -68,9 +51,29 @@ interface MovieApiService {
         @Query("api_key") apiKey: String?,
     ): Response<MovieResponse>
 
-    @GET("movie/{movie_id}/credits")
-    suspend fun getCastMovie(
-        @Path("movie_id") castId: Int?,
+
+    @GET("genre/movie/list")
+    suspend fun getGenre(
         @Query("api_key") apiKey: String?,
-    ): Response<Cast>
+    ): Response<Genre>
+
+
+    @GET("tv/top_rated")
+    suspend fun getTopRatedTV(
+        @Query("api_key") apiKey: String?,
+    ): Response<Tv>
+
+
+    @GET("person/popular")
+    suspend fun getPopularPerson(
+        @Query("api_key") apiKey: String?,
+        ): Response<Actor>
+
+
+    @GET("person/{person_id}")
+    suspend fun getActorDetails(
+        @Path("person_id") personId: Int?,
+        @Query("api_key") apiKey: String?,
+    ): Response<ActorDetails>
+
 }

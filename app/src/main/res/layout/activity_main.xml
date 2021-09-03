@@ -28,61 +28,13 @@
             android:id="@+id/navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/navigation_bar"
+            android:background="@color/off_white"
+            android:elevation="16dp"
             app:menu="@menu/bottom_nav_menu"
-            android:layout_margin="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/fragment_host"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        tools:context=".ui.MainActivity">-->
-
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Loading"-->
-<!--            android:textSize="24sp"-->
-<!--            app:layout_constraintBottom_toTopOf="@+id/textView"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:showWhenLoading="@{viewModel.liveMovie}" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/textView"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="error"-->
-<!--            android:textSize="24sp"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:showWhenError="@{viewModel.liveMovie}" />-->
-
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/recycler_movie"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="vertical"-->
-<!--            app:items="@{viewModel.liveMovie.toData().results}"-->
-<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:showWhenSuccess="@{viewModel.liveMovie}"-->
-<!--            tools:listitem="@layout/item_movie" />-->
-
-
-<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 </layout>

@@ -1,12 +1,8 @@
 package com.example.movie_app.data.movieDetails
 
-
 import android.annotation.SuppressLint
 import android.os.Parcel
 import android.os.Parcelable
-import com.example.movie_app.data.model.cast.CastX
-import com.example.movie_app.data.model.cast.Crew
-import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 @SuppressLint("ParcelCreator")

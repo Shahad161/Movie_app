@@ -1,15 +1,17 @@
 package com.example.movie_app.ui
 
-import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import com.example.movie_app.R
 import com.example.movie_app.data.model.Movie
-import com.example.movie_app.data.model.cast.CastX
+import com.example.movie_app.data.model.actor.Famous
+import com.example.movie_app.data.model.actor.KnownFor
 import com.example.movie_app.data.model.genre.GenreX
 import com.example.movie_app.data.movieDetails.Genre
+import com.example.movie_app.data.tv.Result
 
 class PopularMovieAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {
     override val layoutId: Int = R.layout.item_movie
+
 }
 
 class SearchMovieAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {
@@ -40,9 +42,22 @@ class GenreForEachMovieAdapter(items: List<Genre>, listener:MovieInteractionList
     override val layoutId: Int = R.layout.item_genre_for_each_movie
 }
 
-class AllMovieAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {
-    override val layoutId: Int = R.layout.all_movie
+class AllTVAdapter(items: List<Result>, listener:MovieInteractionListener): BaseAdapter<Result>(items, listener) {
+    override val layoutId: Int = R.layout.all_tv
 }
+class PopularPersonAdapter(items: List<Famous>, listener:MovieInteractionListener): BaseAdapter<Famous>(items, listener) {
+    override val layoutId: Int = R.layout.item_actor
+
+}
+
+class ActorsMoviesAdapter(items: List<KnownFor>, listener:MovieInteractionListener): BaseAdapter<KnownFor>(items, listener) {
+    override val layoutId: Int = R.layout.item_actors_movies
+}
+
+class SimilarMoviesAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {
+    override val layoutId: Int = R.layout.item_similar
+}
+
 
 class TrendingAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {
     override val layoutId: Int = R.layout.trending_item
@@ -56,4 +71,7 @@ class TrendingAdapter(items: List<Movie>, listener:MovieInteractionListener): Ba
 interface MovieInteractionListener: BaseInteractionListener {
     fun onClickMovie(movie: Movie)
     fun onClickGenre(genre: GenreX)
+    fun onClickFamous(famous: Famous)
+
+
 }

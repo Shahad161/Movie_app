@@ -20,46 +20,109 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="@drawable/home_shape"
+                android:elevation="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/main_blue"
-                />
+                tools:ignore="MissingConstraints">
 
 
-            <EditText
-                android:id="@+id/search_movie_text"
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/back"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="40dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:tint="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/WELCOME"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Search"
+                    android:textColor="@color/black"
+                    android:textSize="24dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/back"
+                    app:layout_constraintStart_toEndOf="@+id/back"
+                    app:layout_constraintTop_toTopOf="@+id/back" />
+
+
+                <TextView
+                    android:id="@+id/search"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-10dp"
+                    android:text="There Are a Lot Of Movies .."
+                    app:layout_constraintEnd_toStartOf="@+id/Photo"
+                    app:layout_constraintStart_toStartOf="@+id/WELCOME"
+                    app:layout_constraintTop_toBottomOf="@+id/WELCOME" />
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/Photo"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginEnd="16dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/bohemian_man_with_his_arms_crossed"
+                    app:layout_constraintBottom_toBottomOf="@+id/back"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/back"
+                    app:shapeAppearanceOverlay="@style/ImageShape" />
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:afterTextChanged="@{() -> viewModel.moviesOfSearch()}"
+                    android:background="@drawable/search_background"
+                    android:elevation="2dp"
+                    android:hint="Search...."
+                    android:padding="8dp"
+                    android:text="@={viewModel.searchTextMovie}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/search" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimationVie"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                android:afterTextChanged="@{() -> viewModel.moviesOfSearch()}"
-                android:background="@drawable/search_shape"
-                android:fontFamily="@font/actor"
-                android:hint="Search"
-                android:padding="8dp"
-                android:text="@={viewModel.searchTextMovie}"
-                android:textColor="@color/main_blue"
-                android:textColorHint="@color/main_blue"
-                android:textSize="24sp"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView8" />
-
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:showWhenLoading="@{viewModel.movieSearch}"
+                app:lottie_rawRes="@raw/loading"
+                />
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_search_movie"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:orientation="vertical"
                 app:items="@{viewModel.movieSearch.toData().results}"
@@ -67,7 +130,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/search_movie_text"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
                 app:showWhenSuccess="@{viewModel.movieSearch}"
                 tools:listitem="@layout/item_search" />
 

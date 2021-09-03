@@ -14,34 +14,32 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_genre"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="8dp"
+        android:elevation="16dp"
+        android:backgroundTint="@color/orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_genre"
+        <TextView
+
+            android:id="@+id/genre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="8dp"
-            android:padding="16dp"
-            android:backgroundTint="@color/yellow"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:fontFamily="@font/poppins_semibold"
+            android:onClick="@{() -> listener.onClickGenre(item)}"
+            android:text="@{item.name}"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            tools:text="cinama" />
+    </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/genre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:fontFamily="@font/actor"
-                android:onClick="@{() -> listener.onClickGenre(item)}"
-                android:text="@{item.name}"
-                android:textColor="@color/black"
-                tools:text="cinama" />
-        </androidx.cardview.widget.CardView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

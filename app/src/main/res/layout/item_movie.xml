@@ -15,13 +15,13 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="160dp"
-        android:layout_height="260dp"
+        android:layout_width="wrap_content"
+        android:layout_height="240dp"
         android:layout_margin="8dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
-            android:layout_width="0dp"
+            android:layout_width="140dp"
             android:layout_height="180dp"
             app:cardCornerRadius="16dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,15 +32,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/movieImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:imageUrl="@{item.posterPath}"
                     android:onClick="@{() -> listener.onClickMovie(item)}"
+                    app:imageUrl="@{item.posterPath}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ImageShape" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -48,31 +49,32 @@
 
         <TextView
             android:id="@+id/movieName"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/actor"
+            android:lines="1"
             android:onClick="@{() -> listener.onClickMovie(item)}"
             android:text="@{item.originalTitle}"
             android:textColor="@color/black"
+
             android:textSize="16sp"
             android:textStyle="bold"
-            android:fontFamily="@font/actor"
-            android:lines="1"
-            tools:text="wander woman"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            tools:text="wander woman" />
 
         <TextView
             android:id="@+id/release_date"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:lines="1"
             android:onClick="@{() -> listener.onClickMovie(item)}"
             android:text="@{item.releaseDate}"
             android:textColor="@color/gray"
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/movieName"
             app:layout_constraintTop_toBottomOf="@+id/movieName"
             tools:text="2020-9-9" />
     </androidx.constraintlayout.widget.ConstraintLayout>
