@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import com.example.movie_app.databinding.FragmentActorBinding
 import com.example.movie_app.ui.MainViewModel
 import com.example.movie_app.ui.PopularPersonAdapter
+import kotlinx.coroutines.delay
 
 class ActorFragment : Fragment() {
 
@@ -36,9 +37,14 @@ class ActorFragment : Fragment() {
 
         viewModel.actorDetails.observe(viewLifecycleOwner, {
             if (it != null ) {
-                val action = ActorFragmentDirections.actionActorFragmentToActorsMoviesFragment(it, viewModel.actorBio)
+                val action = ActorFragmentDirections.actionActorFragmentToActorsMoviesFragment(it, viewModel.genreOfMovie)
                 Navigation.findNavController(view).navigate(action)
             }
+        })
+
+        viewModel.actorBio.observe(viewLifecycleOwner, {
+
+            Log.i("logo", it.toString())
         })
 
 

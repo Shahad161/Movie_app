@@ -72,6 +72,4 @@ interface MovieInteractionListener: BaseInteractionListener {
     fun onClickMovie(movie: Movie)
     fun onClickGenre(genre: GenreX)
     fun onClickFamous(famous: Famous)
-
-
 }

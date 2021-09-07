@@ -1,8 +1,12 @@
 package com.example.movie_app.data.model.actor.details
 
 
+import android.annotation.SuppressLint
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
+@SuppressLint("ParcelCreator")
 data class ActorDetails(
     @SerializedName("adult")
     val adult: Boolean? = null,
@@ -32,4 +36,12 @@ data class ActorDetails(
     val popularity: Double? = null,
     @SerializedName("profile_path")
     val profilePath: String? = null
-)
+): Parcelable {
+    override fun describeContents(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun writeToParcel(dest: Parcel?, flags: Int) {
+        TODO("Not yet implemented")
+    }
+}

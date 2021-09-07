@@ -42,11 +42,14 @@ class SearchFragment : Fragment() {
             }
         })
 
+
+
     }
 
     override fun onStop() {
         super.onStop()
         viewModel.movieDetails.value = null
+        viewModel.similarMovie.value = null
 
     }
 

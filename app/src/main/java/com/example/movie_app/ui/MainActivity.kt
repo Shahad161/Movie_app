@@ -24,9 +24,6 @@ class MainActivity : AppCompatActivity() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
-
-
-
     }
 
     @SuppressLint("ResourceType")

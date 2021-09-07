@@ -1,6 +1,5 @@
 package com.example.movie_app.ui
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.example.movie_app.data.MovieRepository
 import com.example.movie_app.utils.State
@@ -10,6 +9,7 @@ import com.example.movie_app.data.model.actor.Famous
 import com.example.movie_app.data.model.actor.details.ActorDetails
 import com.example.movie_app.data.model.genre.GenreX
 import com.example.movie_app.data.movieDetails.MovieDetails
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -58,6 +58,7 @@ class MainViewModel: ViewModel(), MovieInteractionListener {
 
     var similarMovie = MutableLiveData<State<MovieResponse?>?>()
     private fun getSimilarMovie(movie: Movie){
+        similarMovie.value = null
         viewModelScope.launch {
             repository.similarMovie(movie.id!!).collect {
                 similarMovie.postValue(it)
@@ -65,12 +66,12 @@ class MainViewModel: ViewModel(), MovieInteractionListener {
         }
     }
 
-    var actorBio = ""
+    var actorBio = MutableLiveData<State<ActorDetails?>?>()
     private fun getActorDetails(famous: Famous){
         actorDetails.postValue(famous)
         viewModelScope.launch {
             repository.actorDetailsBio(famous.id!!).collect {
-                actorBio = it.toData()?.biography.toString()
+                actorBio.postValue(it)
             }
         }
     }

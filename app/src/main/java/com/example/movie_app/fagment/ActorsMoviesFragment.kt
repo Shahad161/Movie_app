@@ -1,7 +1,6 @@
 package com.example.movie_app.fagment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,10 +10,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.movie_app.databinding.FragmentActorsMoviesBinding
-import com.example.movie_app.ui.ActorsMoviesAdapter
-import com.example.movie_app.ui.MainViewModel
-import com.example.movie_app.ui.PopularMovieAdapter
-import com.example.movie_app.ui.PopularPersonAdapter
+import com.example.movie_app.ui.*
 
 class ActorsMoviesFragment : Fragment() {
 
@@ -49,7 +45,6 @@ class ActorsMoviesFragment : Fragment() {
             actorsMoviesAdapter.setItems(it)
         }
 
-        binding.bio.text = args.bio
     }
 
 }

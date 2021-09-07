@@ -8,7 +8,8 @@
         android:id="@+id/homeFragment"
         android:name="com.example.movie_app.fagment.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home">
+        tools:layout="@layout/fragment_home"
+        >
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
@@ -110,7 +111,7 @@
             android:name="famous"
             app:argType="com.example.movie_app.data.model.actor.Famous" />
         <argument
-            android:name="bio"
+            android:name="BioDetails"
             app:argType="string" />
     </fragment>
 </navigation>

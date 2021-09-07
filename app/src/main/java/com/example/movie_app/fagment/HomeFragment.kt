@@ -64,6 +64,7 @@ class HomeFragment : Fragment(), Runnable {
         super.onStop()
         viewModel.movieDetails.value = null
         viewModel.movieGenreList.value = null
+        viewModel.similarMovie.value = null
     }
 
     override fun run() {
