@@ -1,8 +1,7 @@
-package com.example.movie_app.fagment
+package com.example.movie_app.ui.fagment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,7 @@ import androidx.navigation.Navigation
 import com.example.movie_app.R
 import com.example.movie_app.databinding.FragmentHomeBinding
 import com.example.movie_app.ui.*
-import kotlinx.android.synthetic.main.activity_main.view.*
+import com.example.movie_app.ui.viewModel.MainViewModel
 
 class HomeFragment : Fragment(), Runnable {
 
@@ -33,8 +32,10 @@ class HomeFragment : Fragment(), Runnable {
         val popularAdapter = PopularMovieAdapter(mutableListOf(), viewModel)
         binding.recyclerPopularMovie.adapter = popularAdapter
 
+
         val genreAdapter = GenreAdapter(mutableListOf(), viewModel)
         binding.recyclerGenreMovie.adapter = genreAdapter
+
 
         val trendingAdapter = TrendingAdapter(mutableListOf(), viewModel)
         binding.recyclerTrendingMovie.adapter = trendingAdapter

@@ -1,4 +1,4 @@
-package com.example.movie_app.fagment
+package com.example.movie_app.ui.fagment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.example.movie_app.databinding.FragmentGenreMoviesBinding
 import com.example.movie_app.ui.GenreMovieListAdapter
-import com.example.movie_app.ui.MainViewModel
+import com.example.movie_app.ui.viewModel.MainViewModel
 
 
 class GenreMoviesFragment : Fragment() {

@@ -26,7 +26,6 @@ abstract class BaseAdapter<T>(private var items: List<T>, private var listener: 
             is ItemViewHolder -> {
                 holder.binding.setVariable(BR.item, currentItem)
                 holder.binding.setVariable(BR.listener, listener)
-
             }
         }
 

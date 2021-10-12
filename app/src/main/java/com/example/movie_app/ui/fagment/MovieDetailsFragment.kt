@@ -1,8 +1,7 @@
-package com.example.movie_app.fagment
+package com.example.movie_app.ui.fagment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.movie_app.databinding.FragmentMovieDetailsBinding
 import com.example.movie_app.ui.GenreForEachMovieAdapter
-import com.example.movie_app.ui.MainViewModel
+import com.example.movie_app.ui.viewModel.MainViewModel
 import com.example.movie_app.ui.SimilarMoviesAdapter
 
 class MovieDetailsFragment : Fragment() {

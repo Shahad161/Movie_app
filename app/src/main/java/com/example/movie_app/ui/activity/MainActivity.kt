@@ -1,18 +1,14 @@
-package com.example.movie_app.ui
+package com.example.movie_app.ui.activity
 
 import android.annotation.SuppressLint
-import android.app.StatusBarManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
 import com.example.movie_app.R
 import com.example.movie_app.databinding.ActivityMainBinding
+import com.example.movie_app.ui.viewModel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

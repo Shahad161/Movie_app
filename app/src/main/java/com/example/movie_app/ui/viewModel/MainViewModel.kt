@@ -1,4 +1,4 @@
-package com.example.movie_app.ui
+package com.example.movie_app.ui.viewModel
 
 import androidx.lifecycle.*
 import com.example.movie_app.data.MovieRepository
@@ -6,17 +6,15 @@ import com.example.movie_app.utils.State
 import com.example.movie_app.data.model.Movie
 import com.example.movie_app.data.model.MovieResponse
 import com.example.movie_app.data.model.actor.Famous
-import com.example.movie_app.data.model.actor.details.ActorDetails
 import com.example.movie_app.data.model.genre.GenreX
 import com.example.movie_app.data.movieDetails.MovieDetails
-import kotlinx.coroutines.delay
+import com.example.movie_app.ui.MovieInteractionListener
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MainViewModel: ViewModel(), MovieInteractionListener {
 
     private val repository = MovieRepository()
-
     var popularMovie = repository.popularMovie().asLiveData()
     var movieGenre = repository.genre().asLiveData()
     var searchTextMovie = MutableLiveData<String?>()
@@ -25,7 +23,6 @@ class MainViewModel: ViewModel(), MovieInteractionListener {
     var topRatedTV = repository.topRatedTV().asLiveData()
     var popularPerson = repository.popularPerson().asLiveData()
     var actorDetails = MutableLiveData<Famous?>()
-
 
     fun moviesOfSearch(){
         movieSearch.value = null
@@ -66,12 +63,12 @@ class MainViewModel: ViewModel(), MovieInteractionListener {
         }
     }
 
-    var actorBio = MutableLiveData<State<ActorDetails?>?>()
+    var actorBio = MutableLiveData<String>()
     private fun getActorDetails(famous: Famous){
         actorDetails.postValue(famous)
         viewModelScope.launch {
             repository.actorDetailsBio(famous.id!!).collect {
-                actorBio.postValue(it)
+                actorBio.postValue(it.toData()?.biography.toString())
             }
         }
     }

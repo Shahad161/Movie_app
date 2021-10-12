@@ -7,10 +7,10 @@
 
         <variable
             name="viewModel"
-            type="com.example.movie_app.ui.MainViewModel" />
+            type="com.example.movie_app.ui.viewModel.MainViewModel" />
         <variable
             name="item"
-            type="com.example.movie_app.data.movieDetails.MovieDetails" />
+            type="com.example.movie_app.data.model.Movie" />
 
     </data>
     <FrameLayout
@@ -20,13 +20,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".fagment.HomeFragment">
+        tools:context=".ui.fagment.HomeFragment">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
+
+
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/lottieAnimationVie"
@@ -78,7 +80,6 @@
                 app:layout_constraintStart_toEndOf="@+id/userPhoto"
                 app:layout_constraintTop_toTopOf="@+id/userPhoto" />
 
-
             <TextView
                 android:id="@+id/mov"
                 android:layout_width="wrap_content"
@@ -86,7 +87,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/poppins_semibold"
-                android:text= "Bareq!"
+                android:text= "Kevin!"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="@+id/userPhoto"
@@ -94,6 +95,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/WELCOME" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -110,8 +112,7 @@
                     android:src="@drawable/search"
                     android:tint="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

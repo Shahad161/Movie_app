@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.movie_app.ui.MainViewModel" />
+            type="com.example.movie_app.ui.viewModel.MainViewModel" />
         <variable
             name="item"
             type="com.example.movie_app.data.model.Movie" />
@@ -17,7 +17,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fagment.TVFragment">
+        tools:context=".ui.fagment.TVFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

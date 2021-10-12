@@ -8,6 +8,9 @@ import com.example.movie_app.data.model.actor.KnownFor
 import com.example.movie_app.data.model.genre.GenreX
 import com.example.movie_app.data.movieDetails.Genre
 import com.example.movie_app.data.tv.Result
+import com.mig35.carousellayoutmanager.CarouselLayoutManager
+import com.mig35.carousellayoutmanager.CarouselZoomPostLayoutListener
+import com.mig35.carousellayoutmanager.CenterScrollListener
 
 class PopularMovieAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {
     override val layoutId: Int = R.layout.item_movie
@@ -24,10 +27,6 @@ class GenreAdapter(items: List<GenreX>, listener:MovieInteractionListener): Base
 
 class GenreListAdapter(items: List<GenreX>, listener:MovieInteractionListener): BaseAdapter<GenreX>(items, listener) {
     override val layoutId: Int = R.layout.item_genre_list
-    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        super.onBindViewHolder(holder, position)
-        holder.itemView.animation = AnimationUtils.loadAnimation(holder.itemView.context, R.anim.cards_anim)
-    }
 }
 
 class GenreMovieListAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {
@@ -61,11 +60,6 @@ class SimilarMoviesAdapter(items: List<Movie>, listener:MovieInteractionListener
 
 class TrendingAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {
     override val layoutId: Int = R.layout.trending_item
-    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        super.onBindViewHolder(holder, position)
-        holder.itemView.animation = AnimationUtils.loadAnimation(holder.itemView.context, R.anim.cards_anim)
-    }
-
 }
 
 interface MovieInteractionListener: BaseInteractionListener {

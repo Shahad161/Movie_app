@@ -1,23 +1,24 @@
-package com.example.movie_app.fagment
+package com.example.movie_app.ui.fagment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.movie_app.databinding.FragmentActorsMoviesBinding
 import com.example.movie_app.ui.*
+import com.example.movie_app.ui.viewModel.MainViewModel
 
 class ActorsMoviesFragment : Fragment() {
 
     val args: ActorsMoviesFragmentArgs by navArgs()
     lateinit var binding: FragmentActorsMoviesBinding
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by activityViewModels()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentActorsMoviesBinding.inflate(layoutInflater)
         binding.viewModel = viewModel

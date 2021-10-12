@@ -31,11 +31,11 @@
 
             android:id="@+id/genre"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:fontFamily="@font/poppins_semibold"
             android:onClick="@{() -> listener.onClickGenre(item)}"
-            android:text="@{item.name}"
             android:padding="8dp"
+            android:text="@{item.name}"
             android:textColor="@color/white"
             tools:text="cinama" />
     </androidx.cardview.widget.CardView>

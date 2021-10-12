@@ -23,16 +23,13 @@ class MovieRepository {
     fun movieDetails(movieId: Int) = wrapWithFlow { Api.apiService.getMovieDetails(movieId, Constants.API_KEY) }
     fun trendingMovie() = wrapWithFlow { Api.apiService.getTrendingMovie("movie","week", Constants.API_KEY) }
     fun similarMovie(movieId: Int) = wrapWithFlow { Api.apiService.getSimilarMovie(movieId, Constants.API_KEY) }
-
     fun topRatedTV() = wrapWithFlow { Api.apiService.getTopRatedTV(Constants.API_KEY) }
     fun popularPerson() = wrapWithFlow { Api.apiService.getPopularPerson(Constants.API_KEY) }
-
     fun actorDetailsBio(actorId: Int) = wrapWithFlow { Api.apiService.getActorDetails(actorId, Constants.API_KEY )}
 
 
 
     fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {
-
         return flow {
             emit(State.Loading)
             try {
@@ -46,7 +43,6 @@ class MovieRepository {
                 emit(State.Error(e.message.toString()))
             }
         }
-
     }
 
 

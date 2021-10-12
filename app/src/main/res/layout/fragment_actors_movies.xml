@@ -7,18 +7,19 @@
 
         <variable
             name="viewModel"
-            type="com.example.movie_app.ui.MainViewModel"/>
+            type="com.example.movie_app.ui.viewModel.MainViewModel"/>
 
         <variable
             name="item"
             type="com.example.movie_app.data.model.actor.details.ActorDetails" />
+
 
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fagment.ActorsMoviesFragment">
+        tools:context=".ui.fagment.ActorsMoviesFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -34,7 +35,8 @@
                 app:layout_constraintBottom_toBottomOf="@+id/back"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/back"
-                app:shapeAppearanceOverlay="@style/ImageShape" />
+                app:shapeAppearanceOverlay="@style/ImageShape"
+                />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/Photo"

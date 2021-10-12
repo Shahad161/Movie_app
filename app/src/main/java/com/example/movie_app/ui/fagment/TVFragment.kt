@@ -1,4 +1,4 @@
-package com.example.movie_app.fagment
+package com.example.movie_app.ui.fagment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,8 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.example.movie_app.databinding.FragmentTVBinding
 import com.example.movie_app.ui.AllTVAdapter
-import com.example.movie_app.ui.MainViewModel
-import com.example.movie_app.ui.TrendingAdapter
+import com.example.movie_app.ui.viewModel.MainViewModel
 
 class TVFragment : Fragment() {
 

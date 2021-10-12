@@ -7,14 +7,14 @@
 
         <variable
             name="viewModel"
-            type="com.example.movie_app.ui.MainViewModel" />
+            type="com.example.movie_app.ui.viewModel.MainViewModel" />
 
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fagment.SearchFragment">
+        tools:context=".ui.fagment.SearchFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

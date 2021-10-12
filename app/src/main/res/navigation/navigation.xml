@@ -6,7 +6,7 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.movie_app.fagment.HomeFragment"
+        android:name="com.example.movie_app.ui.fagment.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home"
         >
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.movie_app.fagment.SearchFragment"
+        android:name="com.example.movie_app.ui.fagment.SearchFragment"
         android:label="SearchFragment"
         tools:layout="@layout/fragment_search"
         >
@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/genreListFragment"
-        android:name="com.example.movie_app.fagment.GenreListFragment"
+        android:name="com.example.movie_app.ui.fagment.GenreListFragment"
         android:label="fragment_genre_list"
         tools:layout="@layout/fragment_genre_list" >
         <action
@@ -54,7 +54,7 @@
     </fragment>
     <fragment
         android:id="@+id/genreMoviesFragment2"
-        android:name="com.example.movie_app.fagment.GenreMoviesFragment"
+        android:name="com.example.movie_app.ui.fagment.GenreMoviesFragment"
         android:label="GenreMoviesFragment"
         tools:layout="@layout/fragment_genre_movies">
         <argument
@@ -69,7 +69,7 @@
     </fragment>
     <fragment
         android:id="@+id/movieDetailsFragment"
-        android:name="com.example.movie_app.fagment.MovieDetailsFragment"
+        android:name="com.example.movie_app.ui.fagment.MovieDetailsFragment"
         android:label="MovieDetailsFragment"
         tools:layout="@layout/fragment_movie_details"
         >
@@ -82,14 +82,14 @@
     </fragment>
     <fragment
         android:id="@+id/TVFragment"
-        android:name="com.example.movie_app.fagment.TVFragment"
+        android:name="com.example.movie_app.ui.fagment.TVFragment"
         android:label="TVFragment"
         tools:layout="@layout/fragment_t_v"
 
         />
     <fragment
         android:id="@+id/actorFragment"
-        android:name="com.example.movie_app.fagment.ActorFragment"
+        android:name="com.example.movie_app.ui.fagment.ActorFragment"
         android:label="ActorFragment"
         tools:layout="@layout/fragment_actor"
 
@@ -102,7 +102,7 @@
     </fragment>
     <fragment
         android:id="@+id/actorsMoviesFragment"
-        android:name="com.example.movie_app.fagment.ActorsMoviesFragment"
+        android:name="com.example.movie_app.ui.fagment.ActorsMoviesFragment"
         android:label="ActorsMoviesFragment"
         tools:layout="@layout/fragment_actors_movies"
 
@@ -110,8 +110,5 @@
         <argument
             android:name="famous"
             app:argType="com.example.movie_app.data.model.actor.Famous" />
-        <argument
-            android:name="BioDetails"
-            app:argType="string" />
     </fragment>
 </navigation>
