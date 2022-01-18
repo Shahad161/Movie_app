@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.movie_app.R
 import com.example.movie_app.databinding.ActivityMainBinding
 import com.example.movie_app.ui.viewModel.MainViewModel

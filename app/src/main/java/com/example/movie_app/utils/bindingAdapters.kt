@@ -1,11 +1,12 @@
 package com.example.movie_app.utils
 
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.movie_app.ui.BaseAdapter
+import com.example.movie_app.ui.base.BaseAdapter
 
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T>showWhenLoading(view: View, state: State<T>?){
@@ -42,6 +43,7 @@ fun setImageFromUrl(view: ImageView, url: String?) {
 
 @BindingAdapter(value = ["app:items"])
 fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) {
+    Log.i("uu", items.toString())
     if (items != null){
         view.adapter?.notifyDataSetChanged()
         (view.adapter as BaseAdapter<T>?)?.setItems(items)

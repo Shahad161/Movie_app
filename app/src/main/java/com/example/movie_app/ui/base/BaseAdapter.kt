@@ -1,13 +1,11 @@
-package com.example.movie_app.ui
+package com.example.movie_app.ui.base
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movie_app.BR
-import com.example.movie_app.data.model.Movie
 
 
 interface BaseInteractionListener
@@ -17,14 +15,14 @@ abstract class BaseAdapter<T>(private var items: List<T>, private var listener: 
 
     abstract val layoutId: Int
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
-        return ItemViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), layoutId, parent, false))
+        return ItemViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context),
+            layoutId, parent, false))
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        val currentItem = items[position]
         when(holder){
             is ItemViewHolder -> {
-                holder.binding.setVariable(BR.item, currentItem)
+                holder.binding.setVariable(BR.item, items[position])
                 holder.binding.setVariable(BR.listener, listener)
             }
         }

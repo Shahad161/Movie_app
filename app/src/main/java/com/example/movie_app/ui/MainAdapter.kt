@@ -8,9 +8,8 @@ import com.example.movie_app.data.model.actor.KnownFor
 import com.example.movie_app.data.model.genre.GenreX
 import com.example.movie_app.data.movieDetails.Genre
 import com.example.movie_app.data.tv.Result
-import com.mig35.carousellayoutmanager.CarouselLayoutManager
-import com.mig35.carousellayoutmanager.CarouselZoomPostLayoutListener
-import com.mig35.carousellayoutmanager.CenterScrollListener
+import com.example.movie_app.ui.base.BaseAdapter
+import com.example.movie_app.ui.base.BaseInteractionListener
 
 class PopularMovieAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {
     override val layoutId: Int = R.layout.item_movie
