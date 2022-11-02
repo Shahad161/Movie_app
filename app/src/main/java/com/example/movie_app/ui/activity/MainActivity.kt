@@ -24,8 +24,4 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         return true
     }
 
-    fun setDefaultAppbarVisibility(visible: Boolean){
-        setVisibility(binding.appbar, visible)
-    }
-
 }

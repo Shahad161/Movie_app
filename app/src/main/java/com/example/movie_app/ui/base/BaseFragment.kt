@@ -1,38 +1,44 @@
 package com.example.movie_app.ui.base
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingComponent
+import android.view.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.*
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
-import androidx.viewbinding.ViewBinding
-import com.example.movie_app.databinding.FragmentActorBinding
-import com.example.movie_app.ui.PopularPersonAdapter
-import com.example.movie_app.ui.fagment.ActorFragmentDirections
+import androidx.lifecycle.ViewModel
+import com.example.movie_app.BR
 
-abstract class BaseFragment <VB : ViewBinding> : Fragment(){
-    protected lateinit var binding: VB
-    protected abstract fun getViewBinding(): VB
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        init()
-    }
+abstract class BaseFragment<VDB : ViewDataBinding> : Fragment() {
+    abstract val layoutIdFragment: Int
+    abstract val viewModel: ViewModel
+
+    private lateinit var _binding: VDB
+    protected val binding: VDB
+        get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        addCallBack()
-        return binding.root
+        _binding = DataBindingUtil.inflate(inflater, layoutIdFragment, container, false)
+        _binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+            setVariable(BR.viewModel, viewModel)
+            return root
+        }
     }
-    private fun init() {
-        binding = getViewBinding()
-        setUpViews()
+
+    protected fun setTitle(visibility: Boolean, title: String? = null) {
+        if (visibility) {
+            (activity as AppCompatActivity).supportActionBar?.show()
+            title?.let {
+                (activity as AppCompatActivity).supportActionBar?.title = it
+            }
+        } else {
+            (activity as AppCompatActivity).supportActionBar?.hide()
+        }
     }
-    open fun setUpViews() {}
-    abstract fun addCallBack()
+
 }
