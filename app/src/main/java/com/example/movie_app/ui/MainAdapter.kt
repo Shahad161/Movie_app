@@ -13,7 +13,6 @@ import com.example.movie_app.ui.base.BaseInteractionListener
 
 class PopularMovieAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {
     override val layoutId: Int = R.layout.item_movie
-
 }
 
 class SearchMovieAdapter(items: List<Movie>, listener:MovieInteractionListener): BaseAdapter<Movie>(items, listener) {

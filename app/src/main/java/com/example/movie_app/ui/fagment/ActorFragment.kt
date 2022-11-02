@@ -33,12 +33,12 @@ class ActorFragment : Fragment() {
             Navigation.findNavController(view).popBackStack()
         }
 
-        viewModel.actorDetails.observe(viewLifecycleOwner, {
-            if (it != null ) {
+        viewModel.actorDetails.observe(viewLifecycleOwner) {
+            if (it != null) {
                 val action = ActorFragmentDirections.actionActorFragmentToActorsMoviesFragment(it)
                 Navigation.findNavController(view).navigate(action)
             }
-        })
+        }
 
 
     }
