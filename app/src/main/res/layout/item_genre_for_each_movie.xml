@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.example.movie_app.data.movieDetails.Genre" />
+            type="com.example.movie_app.data.remote.response.movieDetails.Genre" />
 
         <variable
             name="listener"

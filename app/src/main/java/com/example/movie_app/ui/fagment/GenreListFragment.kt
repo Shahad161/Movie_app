@@ -38,13 +38,14 @@ class GenreListFragment : Fragment() {
         val genreAdapter = GenreListAdapter(mutableListOf(), viewModel)
         binding.recyclerGenreList.adapter = genreAdapter
 
-        viewModel.movieGenreList.observe(viewLifecycleOwner, {
-            if (it?.toData() != null ) {
+        viewModel.movieGenreList.observe(viewLifecycleOwner) {
+            if (it?.toData() != null) {
                 val action =
-                    GenreListFragmentDirections.actionGenreListFragmentToGenreMoviesFragment2(it.toData()!!, viewModel.genreOfMovie)
+                    GenreListFragmentDirections.actionGenreListFragmentToGenreMoviesFragment2(it.toData()!!,
+                        viewModel.genreOfMovie)
                 Navigation.findNavController(view).navigate(action)
             }
-        })
+        }
     }
     override fun onStop() {
         super.onStop()

@@ -1,11 +1,11 @@
-package com.example.movie_app.networking
+package com.example.movie_app.data.remote.service
 
-import com.example.movie_app.data.model.MovieResponse
-import com.example.movie_app.data.model.actor.Actor
-import com.example.movie_app.data.model.actor.details.ActorDetails
-import com.example.movie_app.data.model.genre.Genre
-import com.example.movie_app.data.movieDetails.MovieDetails
-import com.example.movie_app.data.tv.Tv
+import com.example.movie_app.data.remote.response.MovieResponse
+import com.example.movie_app.data.remote.response.actor.Actor
+import com.example.movie_app.data.remote.response.actor.details.ActorDetails
+import com.example.movie_app.data.remote.response.genre.Genre
+import com.example.movie_app.data.remote.response.movieDetails.MovieDetails
+import com.example.movie_app.data.remote.response.tv.Tv
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

@@ -1,4 +1,4 @@
-package com.example.movie_app.data
+package com.example.movie_app.data.remote
 
 
 object Constants {

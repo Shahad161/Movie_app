@@ -1,4 +1,4 @@
-package com.example.movie_app.data.model
+package com.example.movie_app.data.remote.response
 
 import android.annotation.SuppressLint
 import android.os.Parcel

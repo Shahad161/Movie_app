@@ -45,12 +45,15 @@ class GenreMoviesFragment : Fragment() {
         }
 
         binding.genreMovie.text = args.geneerName
-        viewModel.movieDetails.observe(viewLifecycleOwner, {
-            if (it?.toData() != null ) {
-                val action = GenreMoviesFragmentDirections.actionGenreMoviesFragment2ToMovieDetailsFragment(it.toData()!!, viewModel.similarMovie.value?.toData()!!)
+        viewModel.movieDetails.observe(viewLifecycleOwner) {
+            if (it?.toData() != null) {
+                val action =
+                    GenreMoviesFragmentDirections.actionGenreMoviesFragment2ToMovieDetailsFragment(
+                        it.toData()!!,
+                        viewModel.similarMovie.value?.toData()!!)
                 Navigation.findNavController(view).navigate(action)
             }
-        })
+        }
 
     }
 

@@ -10,7 +10,7 @@
             type="com.example.movie_app.ui.viewModel.MainViewModel" />
         <variable
             name="item"
-            type="com.example.movie_app.data.model.Movie" />
+            type="com.example.movie_app.data.remote.response.Movie" />
 
     </data>
 

@@ -2,14 +2,13 @@ package com.example.movie_app.ui.fagment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import com.example.movie_app.databinding.FragmentActorBinding
 import com.example.movie_app.ui.viewModel.MainViewModel
 import com.example.movie_app.ui.PopularPersonAdapter
+
 
 class ActorFragment : Fragment() {
 
@@ -39,7 +38,6 @@ class ActorFragment : Fragment() {
                 Navigation.findNavController(view).navigate(action)
             }
         }
-
 
     }
 

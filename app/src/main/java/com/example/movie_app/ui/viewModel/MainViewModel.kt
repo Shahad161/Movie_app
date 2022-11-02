@@ -1,15 +1,14 @@
 package com.example.movie_app.ui.viewModel
 
 import androidx.lifecycle.*
-import com.example.movie_app.data.MovieRepository
+import com.example.movie_app.data.repository.MovieRepository
 import com.example.movie_app.utils.State
-import com.example.movie_app.data.model.Movie
-import com.example.movie_app.data.model.MovieResponse
-import com.example.movie_app.data.model.actor.Famous
-import com.example.movie_app.data.model.genre.GenreX
-import com.example.movie_app.data.movieDetails.MovieDetails
+import com.example.movie_app.data.remote.response.Movie
+import com.example.movie_app.data.remote.response.MovieResponse
+import com.example.movie_app.data.remote.response.actor.Famous
+import com.example.movie_app.data.remote.response.genre.GenreX
+import com.example.movie_app.data.remote.response.movieDetails.MovieDetails
 import com.example.movie_app.ui.MovieInteractionListener
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MainViewModel: ViewModel(), MovieInteractionListener {

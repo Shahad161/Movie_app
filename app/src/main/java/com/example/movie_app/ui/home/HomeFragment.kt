@@ -1,4 +1,4 @@
-package com.example.movie_app.ui.fagment
+package com.example.movie_app.ui.home
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -45,19 +45,25 @@ class HomeFragment : Fragment(), Runnable {
         }
 
 
-        viewModel.movieGenreList.observe(viewLifecycleOwner, {
-            if (it?.toData() != null ) {
-                val action = HomeFragmentDirections.actionHomeFragmentToGenreMoviesFragment2(it.toData()!!,viewModel.genreOfMovie)
+        viewModel.movieGenreList.observe(viewLifecycleOwner) {
+            if (it?.toData() != null) {
+                val action =
+                    HomeFragmentDirections.actionHomeFragmentToGenreMoviesFragment2(
+                        it.toData()!!,
+                        viewModel.genreOfMovie)
                 Navigation.findNavController(view).navigate(action)
             }
-        })
+        }
 
-        viewModel.movieDetails.observe(viewLifecycleOwner, {
-            if (it?.toData() != null ) {
-                val action = HomeFragmentDirections.actionHomeFragmentToMovieDetailsFragment(it.toData()!!, viewModel.similarMovie.value?.toData()!!)
+        viewModel.movieDetails.observe(viewLifecycleOwner) {
+            if (it?.toData() != null) {
+                val action =
+                    HomeFragmentDirections.actionHomeFragmentToMovieDetailsFragment(
+                        it.toData()!!,
+                        viewModel.similarMovie.value?.toData()!!)
                 Navigation.findNavController(view).navigate(action)
             }
-        })
+        }
 
     }
 

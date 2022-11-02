@@ -8,7 +8,7 @@
 
         <variable
             name="item"
-            type="com.example.movie_app.data.model.genre.GenreX" />
+            type="com.example.movie_app.data.remote.response.genre.GenreX" />
 
         <variable
             name="listener"

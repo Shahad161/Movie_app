@@ -6,7 +6,7 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.movie_app.ui.fagment.HomeFragment"
+        android:name="com.example.movie_app.ui.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home"
         >
@@ -59,7 +59,7 @@
         tools:layout="@layout/fragment_genre_movies">
         <argument
             android:name="movieList"
-            app:argType="com.example.movie_app.data.model.MovieResponse" />
+            app:argType="com.example.movie_app.data.remote.response.MovieResponse" />
         <action
             android:id="@+id/action_genreMoviesFragment2_to_movieDetailsFragment"
             app:destination="@id/movieDetailsFragment" />
@@ -75,10 +75,10 @@
         >
         <argument
             android:name="movieDetails"
-            app:argType="com.example.movie_app.data.movieDetails.MovieDetails" />
+            app:argType="com.example.movie_app.data.remote.response.movieDetails.MovieDetails" />
         <argument
             android:name="similarMovie"
-            app:argType="com.example.movie_app.data.model.MovieResponse" />
+            app:argType="com.example.movie_app.data.remote.response.MovieResponse" />
     </fragment>
     <fragment
         android:id="@+id/TVFragment"
@@ -109,6 +109,6 @@
         >
         <argument
             android:name="famous"
-            app:argType="com.example.movie_app.data.model.actor.Famous" />
+            app:argType="com.example.movie_app.data.remote.response.actor.Famous" />
     </fragment>
 </navigation>

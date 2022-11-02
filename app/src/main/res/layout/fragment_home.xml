@@ -10,7 +10,7 @@
             type="com.example.movie_app.ui.viewModel.MainViewModel" />
         <variable
             name="item"
-            type="com.example.movie_app.data.model.Movie" />
+            type="com.example.movie_app.data.remote.response.Movie" />
 
     </data>
     <FrameLayout
@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".ui.fagment.HomeFragment">
+        tools:context=".ui.home.HomeFragment">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout

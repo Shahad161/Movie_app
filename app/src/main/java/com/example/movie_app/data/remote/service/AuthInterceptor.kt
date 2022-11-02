@@ -1,11 +1,11 @@
-package com.example.movie_app.networking
+package com.example.movie_app.data.remote.service
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object Api {
+object AuthInterceptor {
 
     private val BASE_URL = "https://api.themoviedb.org/3/"
     private val myInterceptor = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }

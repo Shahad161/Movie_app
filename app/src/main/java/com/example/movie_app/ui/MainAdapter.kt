@@ -2,12 +2,12 @@ package com.example.movie_app.ui
 
 import android.view.animation.AnimationUtils
 import com.example.movie_app.R
-import com.example.movie_app.data.model.Movie
-import com.example.movie_app.data.model.actor.Famous
-import com.example.movie_app.data.model.actor.KnownFor
-import com.example.movie_app.data.model.genre.GenreX
-import com.example.movie_app.data.movieDetails.Genre
-import com.example.movie_app.data.tv.Result
+import com.example.movie_app.data.remote.response.Movie
+import com.example.movie_app.data.remote.response.actor.Famous
+import com.example.movie_app.data.remote.response.actor.KnownFor
+import com.example.movie_app.data.remote.response.genre.GenreX
+import com.example.movie_app.data.remote.response.movieDetails.Genre
+import com.example.movie_app.data.remote.response.tv.Result
 import com.example.movie_app.ui.base.BaseAdapter
 import com.example.movie_app.ui.base.BaseInteractionListener
 

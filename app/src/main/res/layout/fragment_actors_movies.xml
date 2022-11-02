@@ -11,7 +11,7 @@
 
         <variable
             name="item"
-            type="com.example.movie_app.data.model.actor.details.ActorDetails" />
+            type="com.example.movie_app.data.remote.response.actor.details.ActorDetails" />
 
 
     </data>
