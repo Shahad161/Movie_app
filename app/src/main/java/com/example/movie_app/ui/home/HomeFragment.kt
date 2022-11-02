@@ -11,7 +11,7 @@ import androidx.navigation.Navigation
 import com.example.movie_app.R
 import com.example.movie_app.databinding.FragmentHomeBinding
 import com.example.movie_app.ui.*
-import com.example.movie_app.ui.viewModel.MainViewModel
+import com.example.movie_app.ui.activity.MainViewModel
 
 class HomeFragment : Fragment(), Runnable {
 
@@ -39,10 +39,6 @@ class HomeFragment : Fragment(), Runnable {
 
         val trendingAdapter = TrendingAdapter(mutableListOf(), viewModel)
         binding.recyclerTrendingMovie.adapter = trendingAdapter
-
-        binding.searchButton.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_searchFragment)
-        }
 
 
         viewModel.movieGenreList.observe(viewLifecycleOwner) {

@@ -6,7 +6,7 @@ import android.view.*
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import com.example.movie_app.databinding.FragmentActorBinding
-import com.example.movie_app.ui.viewModel.MainViewModel
+import com.example.movie_app.ui.activity.MainViewModel
 import com.example.movie_app.ui.PopularPersonAdapter
 
 

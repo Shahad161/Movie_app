@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.example.movie_app.databinding.FragmentTVBinding
 import com.example.movie_app.ui.AllTVAdapter
-import com.example.movie_app.ui.viewModel.MainViewModel
+import com.example.movie_app.ui.activity.MainViewModel
 
 class TVFragment : Fragment() {
 

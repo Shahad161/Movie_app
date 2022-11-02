@@ -8,6 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movie_app.ui.base.BaseAdapter
 
+@BindingAdapter(value = ["show"])
+fun setVisibility(view: View, value: Boolean?) {
+    view.visibility = if(value.isTrue()) View.VISIBLE else View.GONE
+}
+
+fun Boolean?.isTrue(): Boolean = this == true
+
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T>showWhenLoading(view: View, state: State<T>?){
     if (state is State.Loading){

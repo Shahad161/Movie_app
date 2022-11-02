@@ -10,7 +10,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.example.movie_app.databinding.FragmentGenreMoviesBinding
 import com.example.movie_app.ui.GenreMovieListAdapter
-import com.example.movie_app.ui.viewModel.MainViewModel
+import com.example.movie_app.ui.activity.MainViewModel
 
 
 class GenreMoviesFragment : Fragment() {

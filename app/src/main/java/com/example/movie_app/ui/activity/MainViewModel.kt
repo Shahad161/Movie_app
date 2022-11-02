@@ -1,4 +1,4 @@
-package com.example.movie_app.ui.viewModel
+package com.example.movie_app.ui.activity
 
 import androidx.lifecycle.*
 import com.example.movie_app.data.repository.MovieRepository
@@ -9,9 +9,10 @@ import com.example.movie_app.data.remote.response.actor.Famous
 import com.example.movie_app.data.remote.response.genre.GenreX
 import com.example.movie_app.data.remote.response.movieDetails.MovieDetails
 import com.example.movie_app.ui.MovieInteractionListener
+import com.example.movie_app.ui.base.BaseViewModel
 import kotlinx.coroutines.launch
 
-class MainViewModel: ViewModel(), MovieInteractionListener {
+class MainViewModel: BaseViewModel(), MovieInteractionListener {
 
     private val repository = MovieRepository()
     var popularMovie = repository.popularMovie().asLiveData()

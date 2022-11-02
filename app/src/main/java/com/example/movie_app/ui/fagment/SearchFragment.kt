@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.example.movie_app.databinding.FragmentSearchBinding
-import com.example.movie_app.ui.viewModel.MainViewModel
+import com.example.movie_app.ui.activity.MainViewModel
 import com.example.movie_app.ui.SearchMovieAdapter
 
 class SearchFragment : Fragment() {

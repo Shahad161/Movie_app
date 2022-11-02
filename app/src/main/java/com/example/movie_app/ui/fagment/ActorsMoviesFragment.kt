@@ -11,7 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.movie_app.databinding.FragmentActorsMoviesBinding
 import com.example.movie_app.ui.*
-import com.example.movie_app.ui.viewModel.MainViewModel
+import com.example.movie_app.ui.activity.MainViewModel
 
 class ActorsMoviesFragment : Fragment() {
 
