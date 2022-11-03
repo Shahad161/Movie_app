@@ -29,10 +29,6 @@ class TVFragment : Fragment() {
         val topRateTVAdapter = AllTVAdapter(mutableListOf(), viewModel)
         binding.recyclerTopRateTv.adapter = topRateTVAdapter
 
-        binding.back.setOnClickListener {
-            Navigation.findNavController(view).popBackStack()
-        }
-
 
     }
 

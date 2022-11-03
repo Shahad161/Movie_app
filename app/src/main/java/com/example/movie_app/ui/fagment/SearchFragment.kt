@@ -7,24 +7,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import com.example.movie_app.R
 import com.example.movie_app.databinding.FragmentSearchBinding
 import com.example.movie_app.ui.activity.MainViewModel
 import com.example.movie_app.ui.SearchMovieAdapter
+import com.example.movie_app.ui.base.BaseFragment
+import com.example.movie_app.ui.home.HomeViewModel
 
-class SearchFragment : Fragment() {
+class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
-    lateinit var binding: FragmentSearchBinding
+    override val layoutIdFragment: Int = R.layout.fragment_search
 
-    private val viewModel: MainViewModel by viewModels()
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentSearchBinding.inflate(layoutInflater)
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = this
-        return binding.root
-    }
+    override val viewModel: MainViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         val searchAdapter = SearchMovieAdapter(mutableListOf(), viewModel)
         binding.recyclerSearchMovie.adapter = searchAdapter
@@ -34,13 +32,14 @@ class SearchFragment : Fragment() {
             Navigation.findNavController(view).popBackStack()
         }
 
-        viewModel.movieDetails.observe(viewLifecycleOwner, {
-            if (it?.toData() != null ) {
-                val action = SearchFragmentDirections.actionSearchFragmentToMovieDetailsFragment(it.toData()!!, viewModel.similarMovie.value?.toData()!!)
+        viewModel.movieDetails.observe(viewLifecycleOwner) {
+            if (it?.toData() != null) {
+                val action =
+                    SearchFragmentDirections.actionSearchFragmentToMovieDetailsFragment(it.toData()!!,
+                        viewModel.similarMovie.value?.toData()!!)
                 Navigation.findNavController(view).navigate(action)
             }
-        })
-
+        }
 
 
     }
